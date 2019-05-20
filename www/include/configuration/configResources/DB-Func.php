@@ -203,8 +203,8 @@ function updateResourceInDB($resource_id = null)
     if (!$resource_id) {
         return;
     }
-    updateResource((int) $resource_id;
-    insertInstanceRelations((int) $resource_id;
+    updateResource((int) $resource_id);
+    insertInstanceRelations((int) $resource_id);
 }
 
 /**
