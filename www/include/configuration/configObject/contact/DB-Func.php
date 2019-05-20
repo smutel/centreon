@@ -155,7 +155,7 @@ function enableContactInDB($contact_id = null, $contact_arr = array())
     }
 
     foreach ($contact_arr as $key => $value) {
-        $pearDB->query("UPDATE contact SET contact_activate = '1' WHERE contact_id = '" . (int)$key . "'";
+        $pearDB->query("UPDATE contact SET contact_activate = '1' WHERE contact_id = '" . (int)$key . "'");
 
         $query = "SELECT contact_name FROM `contact` WHERE `contact_id` = '" . (int)$key . "' LIMIT 1";
         $dbResult2 = $pearDB->query($query);
@@ -184,7 +184,7 @@ function disableContactInDB($contact_id = null, $contact_arr = array())
 
     foreach ($contact_arr as $key => $value) {
         if (keepOneContactAtLeast($key)) {
-            $pearDB->query("UPDATE contact SET contact_activate = '0' WHERE contact_id = '" . (int)$key . "'";
+            $pearDB->query("UPDATE contact SET contact_activate = '0' WHERE contact_id = '" . (int)$key . "'");
             $query = "SELECT contact_name FROM `contact` WHERE `contact_id` = '" . (int)$key . "' LIMIT 1";
             $dbResult2 = $pearDB->query($query);
             $row = $dbResult2->fetch();
@@ -208,7 +208,7 @@ function deleteContactInDB($contacts = array())
         $dbResult2 = $pearDB->query($query);
         $row = $dbResult2->fetch();
 
-        $pearDB->query("DELETE FROM contact WHERE contact_id = '" . (int)$key . "'";
+        $pearDB->query("DELETE FROM contact WHERE contact_id = '" . (int)$key . "'");
         $centreon->CentreonLogAction->insertLog("contact", $key, $row['contact_name'], "d");
     }
 }
@@ -226,7 +226,7 @@ function multipleContactInDB($contacts = array(), $nbrDup = array())
     $newContactIds = [];
     foreach ($contacts as $key => $value) {
         $newContactIds[$key] = [];
-        $dbResult = $pearDB->query("SELECT * FROM contact WHERE contact_id = '" . (int)$key . "' LIMIT 1";
+        $dbResult = $pearDB->query("SELECT * FROM contact WHERE contact_id = '" . (int)$key . "' LIMIT 1");
         $row = $dbResult->fetch();
         $row["contact_id"] = null;
         for ($i = 1; $i <= $nbrDup[$key]; $i++) {
@@ -1191,7 +1191,7 @@ function updateAccessGroupLinks($contact_id, $ret = array())
     /*
      * Empty all ACL Links
      */
-    $pearDB->query("DELETE FROM acl_group_contacts_relations WHERE contact_contact_id = '" . (int)$contact_id . "'";
+    $pearDB->query("DELETE FROM acl_group_contacts_relations WHERE contact_contact_id = '" . (int)$contact_id . "'");
 
     if (isset($ret['contact_acl_groups'])) {
         $ret = $ret['contact_acl_groups'];
