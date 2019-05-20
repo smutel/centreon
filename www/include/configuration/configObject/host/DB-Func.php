@@ -88,7 +88,7 @@ function testPollerDep($instanceId)
     
     if ($prepare->execute()) {
         $result = $prepare->fetch(\PDO::FETCH_ASSOC);
-        return ((int) $result['total'] == 0;
+        return ((int) $result['total']) == 0;
     }
     
     return true;
@@ -125,7 +125,7 @@ function hostMacHandler()
     
     if ($prepare->execute()) {
         $result = $prepare->fetch(\PDO::FETCH_ASSOC);
-        return ((int) $result['total'] == 0;
+        return ((int) $result['total']) == 0;
     }
     return true;
 }
