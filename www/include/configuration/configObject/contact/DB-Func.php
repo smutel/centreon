@@ -902,7 +902,7 @@ function updateContactHostCommands($contact_id = null, $ret = array())
         $rq = "INSERT INTO contact_hostcommands_relation ";
         $rq .= "(contact_contact_id, command_command_id) ";
         $rq .= "VALUES ";
-        $rq .= "('" . (int)$contact_id . "', '" . $ret[$i] . "'";
+        $rq .= "('" . (int)$contact_id . "', '" . $ret[$i] . "')";
         $dbResult = $pearDB->query($rq);
     }
 }
@@ -968,7 +968,7 @@ function updateContactServiceCommands($contact_id = null, $ret = array())
         $rq = "INSERT INTO contact_servicecommands_relation ";
         $rq .= "(contact_contact_id, command_command_id) ";
         $rq .= "VALUES ";
-        $rq .= "('" . (int)$contact_id . "', '" . $ret[$i] . "'";
+        $rq .= "('" . (int)$contact_id . "', '" . $ret[$i] . "')";
         $dbResult = $pearDB->query($rq);
     }
 }
@@ -999,7 +999,7 @@ function updateContactServiceCommands_MC($contact_id = null, $ret = array())
             $rq = "INSERT INTO contact_servicecommands_relation ";
             $rq .= "(contact_contact_id, command_command_id) ";
             $rq .= "VALUES ";
-            $rq .= "('" . (int)$contact_id . "', '" . $ret[$i] . "'";
+            $rq .= "('" . (int)$contact_id . "', '" . $ret[$i] . "')";
             $dbResult = $pearDB->query($rq);
         }
     }
@@ -1032,7 +1032,7 @@ function updateContactContactGroup($contact_id = null, $ret = array())
         $rq = "INSERT INTO contactgroup_contact_relation ";
         $rq .= "(contact_contact_id, contactgroup_cg_id) ";
         $rq .= "VALUES ";
-        $rq .= "('" . (int)$contact_id . "', '" . $ret[$i] . "'";
+        $rq .= "('" . (int)$contact_id . "', '" . $ret[$i] . "')";
         $dbResult = $pearDB->query($rq);
     }
     CentreonCustomView::syncContactGroupCustomView($centreon, $pearDB, $contact_id);
@@ -1065,7 +1065,7 @@ function updateContactContactGroup_MC($contact_id = null, $ret = array())
             $rq = "INSERT INTO contactgroup_contact_relation ";
             $rq .= "(contact_contact_id, contactgroup_cg_id) ";
             $rq .= "VALUES ";
-            $rq .= "('" . (int)$contact_id . "', '" . $ret[$i] . "'";
+            $rq .= "('" . (int)$contact_id . "', '" . $ret[$i] . "')";
             $dbResult = $pearDB->query($rq);
         }
     }
@@ -1161,7 +1161,7 @@ function insertLdapContactInDB($tmpContacts = array())
             // Insert the relation between contact and contactgroups
             while ($row = $res->fetch()) {
                 $query = "INSERT INTO contactgroup_contact_relation (contactgroup_cg_id, contact_contact_id) " .
-                    "VALUES (" . $row['cg_id'] . ", " . (int) $contact_id . "";
+                    "VALUES (" . $row['cg_id'] . ", " . (int) $contact_id . ")";
                 $pearDB->query($query);
             }
         }
@@ -1203,7 +1203,7 @@ function updateAccessGroupLinks($contact_id, $ret = array())
         $rq = "INSERT INTO acl_group_contacts_relations ";
         $rq .= "(contact_contact_id, acl_group_id) ";
         $rq .= "VALUES ";
-        $rq .= "('" . (int)$contact_id . "', '" . $ret[$i] . "'";
+        $rq .= "('" . (int)$contact_id . "', '" . $ret[$i] . "')";
         $dbResult = $pearDB->query($rq);
     }
 }
@@ -1237,7 +1237,7 @@ function updateAccessGroupLinks_MC($contact_id, $flag)
             $rq = "INSERT INTO acl_group_contacts_relations ";
             $rq .= "(contact_contact_id, acl_group_id) ";
             $rq .= "VALUES ";
-            $rq .= "('" . (int)$contact_id . "', '" . $value . "'";
+            $rq .= "('" . (int)$contact_id . "', '" . $value . "')";
             $dbResult = $pearDB->query($rq);
         }
     }

@@ -2661,7 +2661,7 @@ function updateHostTemplateService_MC($host_id = null)
                 $rq = "INSERT INTO host_service_relation ";
                 $rq .= "(hostgroup_hg_id, host_host_id, servicegroup_sg_id, service_service_id) ";
                 $rq .= "VALUES ";
-                $rq .= "(NULL, '" . (int)$host_id . "', NULL, '" . $ret[$i] . "'";
+                $rq .= "(NULL, '" . (int)$host_id . "', NULL, '" . $ret[$i] . "')";
                 $dbResult2 = $pearDB->query($rq);
             }
         }
@@ -2736,7 +2736,7 @@ function updateNagiosServerRelation_MC($host_id, $ret = array())
     if (isset($ret) && $ret != "" && $ret != 0) {
         $dbResult = $pearDB->query("SELECT * FROM ns_host_relation WHERE host_host_id = '" . (int)$host_id . "'");
         $dbResult = $pearDB->query("INSERT INTO `ns_host_relation` (`host_host_id`, `nagios_server_id`) 
-                                    VALUES ('" . (int)$host_id) . "', '" . $ret . "'";
+                                    VALUES ('" . (int)$host_id) . "', '" . $ret . "')");
     }
 }
 
