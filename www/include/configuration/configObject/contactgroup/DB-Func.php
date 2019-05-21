@@ -269,7 +269,7 @@ function updateContactGroupContacts($cg_id, $ret = array())
 
     for ($i = 0; $i < count($ret); $i++) {
         $rq = "INSERT INTO `contactgroup_contact_relation` (`contact_contact_id`, `contactgroup_cg_id`) ";
-        $rq .= "VALUES ('" . $ret[$i] . "', '" . (int)$cg_id . "'";
+        $rq .= "VALUES ('" . $ret[$i] . "', '" . (int)$cg_id . "')";
         $dbResult = $pearDB->query($rq);
 
         CentreonCustomView::syncContactGroupCustomView($centreon, $pearDB, $ret[$i]);
@@ -295,7 +295,7 @@ function updateContactGroupAclGroups($cg_id, $ret = array())
 
     for ($i = 0; $i < count($ret); $i++) {
         $rq = "INSERT INTO `acl_group_contactgroups_relations` (`acl_group_id`, `cg_cg_id`) ";
-        $rq .= "VALUES ('" . $ret[$i] . "', '" . (int)$cg_id . "'";
+        $rq .= "VALUES ('" . $ret[$i] . "', '" . (int)$cg_id . "')";
         $dbResult = $pearDB->query($rq);
     }
 }
