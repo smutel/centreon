@@ -2736,7 +2736,7 @@ function updateNagiosServerRelation_MC($host_id, $ret = array())
     if (isset($ret) && $ret != "" && $ret != 0) {
         $dbResult = $pearDB->query("SELECT * FROM ns_host_relation WHERE host_host_id = '" . (int)$host_id . "'");
         $dbResult = $pearDB->query("INSERT INTO `ns_host_relation` (`host_host_id`, `nagios_server_id`) 
-                                    VALUES ('" . (int)$host_id) . "', '" . $ret . "')");
+                                    VALUES ('" . (int)$host_id . "', '" . $ret . "')");
     }
 }
 
